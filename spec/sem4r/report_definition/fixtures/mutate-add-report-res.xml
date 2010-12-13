@@ -1,68 +1,32 @@
-<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
-  <soap:Header>
-    <ResponseHeader xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <requestId>
-        0789bb35587ef7a3c09857e7dc98f468
-      </requestId>
-      <operations>
-        1
-      </operations>
-      <responseTime>
-        342
-      </responseTime>
-      <units>
-        1
-      </units>
-    </ResponseHeader>
-  </soap:Header>
-  <soap:Body>
-    <mutateResponse xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <rval>
-        <id>
-          9257
-        </id>
-        <selector>
-          <fields>
-            AdGroupId
-          </fields>
-          <fields>
-            Id
-          </fields>
-          <fields>
-            KeywordText
-          </fields>
-          <fields>
-            KeywordMatchType
-          </fields>
-          <fields>
-            Impressions
-          </fields>
-          <fields>
-            Clicks
-          </fields>
-          <fields>
-            Cost
-          </fields>
-        </selector>
-        <reportName>
-          Keywords performance report #1290336379254
-        </reportName>
-        <reportType>
-          KEYWORDS_PERFORMANCE_REPORT
-        </reportType>
-        <hasAttachment>
-          false
-        </hasAttachment>
-        <dateRangeType>
-          LAST_WEEK
-        </dateRangeType>
-        <downloadFormat>
-          CSV
-        </downloadFormat>
-        <creationTime>
-          20101210 105826 America/Los_Angeles
-        </creationTime>
-      </rval>
-    </mutateResponse>
-  </soap:Body>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ResponseHeader xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+         <requestId>43f601d2695055bec23c35a09bea2e6d</requestId>
+         <operations>1</operations>
+         <responseTime>182</responseTime>
+         <units>1</units>
+      </ResponseHeader>
+   </soap:Header>
+   <soap:Body>
+      <mutateResponse xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+         <rval>
+            <id>13578</id>
+            <selector>
+               <fields>AdGroupId</fields>
+               <fields>Id</fields>
+               <fields>KeywordText</fields>
+               <fields>KeywordMatchType</fields>
+               <fields>Impressions</fields>
+               <fields>Clicks</fields>
+               <fields>Cost</fields>
+            </selector>
+            <reportName>Keywords performance report #1290336379254</reportName>
+            <reportType>KEYWORDS_PERFORMANCE_REPORT</reportType>
+            <hasAttachment>false</hasAttachment>
+            <dateRangeType>LAST_WEEK</dateRangeType>
+            <downloadFormat>CSV</downloadFormat>
+            <creationTime>20101213 131755 America/Los_Angeles</creationTime>
+         </rval>
+      </mutateResponse>
+   </soap:Body>
 </soap:Envelope>

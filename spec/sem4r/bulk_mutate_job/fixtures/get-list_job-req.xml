@@ -1,35 +1,20 @@
 <!-- Post to 'https://adwords-sandbox.google.com/api/adwords/job/v201008/BulkMutateJobService' -->
- 
-<env:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns='https://adwords.google.com/api/adwords/cm/v201008' xmlns:s='https://adwords.google.com/api/adwords/cm/v201008'>
-  <env:Header>
-    <s:RequestHeader env:mustUnderstand='0'>
-      <authToken>
-        ***censured***
-      </authToken>
-      <userAgent>
-        Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)
-      </userAgent>
-      <developerToken>
-        ***censured***
-      </developerToken>
-    </s:RequestHeader>
-  </env:Header>
-  <env:Body>
-    <get xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <selector>
-        <jobStatuses>
-          COMPLETED
-        </jobStatuses>
-        <jobStatuses>
-          PROCESSING
-        </jobStatuses>
-        <jobStatuses>
-          FAILED
-        </jobStatuses>
-        <jobStatuses>
-          PENDING
-        </jobStatuses>
-      </selector>
-    </get>
-  </env:Body>
+<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns="https://adwords.google.com/api/adwords/cm/v201008" xmlns:s="https://adwords.google.com/api/adwords/cm/v201008">
+   <env:Header>
+      <s:RequestHeader env:mustUnderstand="0">
+         <authToken>***censured***</authToken>
+         <userAgent>Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)</userAgent>
+         <developerToken>***censured***</developerToken>
+      </s:RequestHeader>
+   </env:Header>
+   <env:Body>
+      <get>
+         <selector>
+            <jobStatuses>COMPLETED</jobStatuses>
+            <jobStatuses>PROCESSING</jobStatuses>
+            <jobStatuses>FAILED</jobStatuses>
+            <jobStatuses>PENDING</jobStatuses>
+         </selector>
+      </get>
+   </env:Body>
 </env:Envelope>

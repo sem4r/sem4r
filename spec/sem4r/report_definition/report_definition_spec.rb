@@ -40,7 +40,7 @@ describe ReportDefinition do
       name "report"
     end
     rd.name.should  == "report"
-    rd.id.should  == 9257
+    rd.id.should  == 13578
   end
 
 

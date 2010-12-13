@@ -1,7 +1,4 @@
 <!-- Post to 'https://adwords-sandbox.google.com/api/adwords/info/v201008/InfoService' -->
-<?xml version="1.0" encoding="UTF-8"?>
-
-
 <env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns="https://adwords.google.com/api/adwords/cm/v201008" xmlns:s="https://adwords.google.com/api/adwords/info/v201008">
    <env:Header>
       <s:RequestHeader env:mustUnderstand="0">
@@ -22,4 +19,3 @@
       </s:get>
    </env:Body>
 </env:Envelope>
-

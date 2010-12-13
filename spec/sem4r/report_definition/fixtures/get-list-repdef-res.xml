@@ -1,73 +1,35 @@
-<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
-  <soap:Header>
-    <ResponseHeader xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <requestId>
-        7839692e0e3dcacb217c8e8aac710566
-      </requestId>
-      <operations>
-        1
-      </operations>
-      <responseTime>
-        245
-      </responseTime>
-      <units>
-        1
-      </units>
-    </ResponseHeader>
-  </soap:Header>
-  <soap:Body>
-    <getResponse xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <rval>
-        <entries>
-          <id>
-            9257
-          </id>
-          <selector>
-            <fields>
-              AdGroupId
-            </fields>
-            <fields>
-              Id
-            </fields>
-            <fields>
-              KeywordText
-            </fields>
-            <fields>
-              KeywordMatchType
-            </fields>
-            <fields>
-              Impressions
-            </fields>
-            <fields>
-              Clicks
-            </fields>
-            <fields>
-              Cost
-            </fields>
-          </selector>
-          <reportName>
-            Keywords performance report #1290336379254
-          </reportName>
-          <reportType>
-            KEYWORDS_PERFORMANCE_REPORT
-          </reportType>
-          <hasAttachment>
-            false
-          </hasAttachment>
-          <dateRangeType>
-            LAST_WEEK
-          </dateRangeType>
-          <downloadFormat>
-            CSV
-          </downloadFormat>
-          <creationTime>
-            20101210 105826 America/Los_Angeles
-          </creationTime>
-        </entries>
-        <totalNumEntries>
-          1
-        </totalNumEntries>
-      </rval>
-    </getResponse>
-  </soap:Body>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ResponseHeader xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+         <requestId>7bb4bcdb75d6ed973ab9b44d8d72f6d7</requestId>
+         <operations>1</operations>
+         <responseTime>140</responseTime>
+         <units>1</units>
+      </ResponseHeader>
+   </soap:Header>
+   <soap:Body>
+      <getResponse xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+         <rval>
+            <entries>
+               <id>13578</id>
+               <selector>
+                  <fields>AdGroupId</fields>
+                  <fields>Id</fields>
+                  <fields>KeywordText</fields>
+                  <fields>KeywordMatchType</fields>
+                  <fields>Impressions</fields>
+                  <fields>Clicks</fields>
+                  <fields>Cost</fields>
+               </selector>
+               <reportName>Keywords performance report #1290336379254</reportName>
+               <reportType>KEYWORDS_PERFORMANCE_REPORT</reportType>
+               <hasAttachment>false</hasAttachment>
+               <dateRangeType>LAST_WEEK</dateRangeType>
+               <downloadFormat>CSV</downloadFormat>
+               <creationTime>20101213 131755 America/Los_Angeles</creationTime>
+            </entries>
+            <totalNumEntries>1</totalNumEntries>
+         </rval>
+      </getResponse>
+   </soap:Body>
 </soap:Envelope>

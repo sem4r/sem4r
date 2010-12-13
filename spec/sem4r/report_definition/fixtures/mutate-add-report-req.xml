@@ -1,41 +1,32 @@
 <!-- Post to 'https://adwords-sandbox.google.com/api/adwords/cm/v201008/ReportDefinitionService' -->
- 
-<env:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-  <env:Header>
-    <RequestHeader env:mustUnderstand='0'>
-      <authToken>
-        ***censured***
-      </authToken>
-      <userAgent>
-        Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)
-      </userAgent>
-      <developerToken>
-        ***censured***
-      </developerToken>
-    </RequestHeader>
-  </env:Header>
-  <env:Body>
-    <mutate>
-      <operations xsi:type='n1:ReportDefinitionOperation' xmlns:n1='https://adwords.google.com/api/adwords/cm/v201008'>
-        <operator>
-          ADD
-        </operator>
-        <operand>
-          <selector>
-            <fields>AdGroupId</fields>
-            <fields>Id</fields>
-            <fields>KeywordText</fields>
-            <fields>KeywordMatchType</fields>
-            <fields>Impressions</fields>
-            <fields>Clicks</fields>
-            <fields>Cost</fields>
-          </selector>
-          <reportName>Keywords performance report #1290336379254</reportName>
-          <reportType>KEYWORDS_PERFORMANCE_REPORT</reportType>
-          <dateRangeType>LAST_WEEK</dateRangeType>
-          <downloadFormat>CSV</downloadFormat>
-        </operand>
-      </operations>
-    </mutate>
-  </env:Body>
+<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+   <env:Header>
+      <RequestHeader env:mustUnderstand="0">
+         <authToken>***censured***</authToken>
+         <userAgent>Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)</userAgent>
+         <developerToken>***censured***</developerToken>
+      </RequestHeader>
+   </env:Header>
+   <env:Body>
+      <mutate>
+         <operations xmlns:n1="https://adwords.google.com/api/adwords/cm/v201008" xsi:type="n1:ReportDefinitionOperation">
+            <operator>ADD</operator>
+            <operand>
+               <selector>
+                  <fields>AdGroupId</fields>
+                  <fields>Id</fields>
+                  <fields>KeywordText</fields>
+                  <fields>KeywordMatchType</fields>
+                  <fields>Impressions</fields>
+                  <fields>Clicks</fields>
+                  <fields>Cost</fields>
+               </selector>
+               <reportName>Keywords performance report #1290336379254</reportName>
+               <reportType>KEYWORDS_PERFORMANCE_REPORT</reportType>
+               <dateRangeType>LAST_WEEK</dateRangeType>
+               <downloadFormat>CSV</downloadFormat>
+            </operand>
+         </operations>
+      </mutate>
+   </env:Body>
 </env:Envelope>

@@ -1,22 +1,15 @@
 <!-- Post to 'https://adwords-sandbox.google.com/api/adwords/cm/v201008/ReportDefinitionService' -->
- 
-<env:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-  <env:Header>
-    <RequestHeader env:mustUnderstand='0'>
-      <authToken>
-        ***censured***
-      </authToken>
-      <userAgent>
-        Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)
-      </userAgent>
-      <developerToken>
-        ***censured***
-      </developerToken>
-    </RequestHeader>
-  </env:Header>
-  <env:Body>
-    <get>
-      <selector/>
-    </get>
-  </env:Body>
+<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+   <env:Header>
+      <RequestHeader env:mustUnderstand="0">
+         <authToken>***censured***</authToken>
+         <userAgent>Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)</userAgent>
+         <developerToken>***censured***</developerToken>
+      </RequestHeader>
+   </env:Header>
+   <env:Body>
+      <get>
+         <selector/>
+      </get>
+   </env:Body>
 </env:Envelope>

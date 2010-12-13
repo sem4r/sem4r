@@ -1,106 +1,57 @@
 <!-- Post to 'https://adwords-sandbox.google.com/api/adwords/job/v201008/BulkMutateJobService' -->
- 
-<env:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns='https://adwords.google.com/api/adwords/cm/v201008' xmlns:s='https://adwords.google.com/api/adwords/cm/v201008'>
-  <env:Header>
-    <s:RequestHeader env:mustUnderstand='0'>
-      <authToken>
-        ***censured***
-      </authToken>
-      <userAgent>
-        Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)
-      </userAgent>
-      <developerToken>
-        ***censured***
-      </developerToken>
-    </s:RequestHeader>
-  </env:Header>
-  <env:Body>
-    <mutate xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <operation xsi:type='JobOperation'>
-        <operator>
-          ADD
-        </operator>
-        <operand xsi:type='BulkMutateJob'>
-          <request>
-            <partIndex>
-              0
-            </partIndex>
-            <operationStreams>
-              <scopingEntityId>
-                <type>
-                  CAMPAIGN_ID
-                </type>
-                <value>
-                  49247
-                </value>
-              </scopingEntityId>
-              <operations xsi:type='AdGroupAdOperation'>
-                <operator>
-                  ADD
-                </operator>
-                <operand xsi:type='AdGroupAd'>
-                  <adGroupId>
-                    3000128685
-                  </adGroupId>
-                  <ad xsi:type='TextAd'>
-                    <url>
-                      http://www.example.com
-                    </url>
-                    <displayUrl>
-                      www.example.com
-                    </displayUrl>
-                    <headline>
-                      Cruise to Mars Sector 1
-                    </headline>
-                    <description1>
-                      Visit the Red Planet in style.
-                    </description1>
-                    <description2>
-                      Low-gravity fun for everyone!
-                    </description2>
-                  </ad>
-                  <status>
-                    ENABLED
-                  </status>
-                </operand>
-              </operations>
-              <operations xsi:type='AdGroupAdOperation'>
-                <operator>
-                  ADD
-                </operator>
-                <operand xsi:type='AdGroupAd'>
-                  <adGroupId>
-                    3000128685
-                  </adGroupId>
-                  <ad xsi:type='TextAd'>
-                    <url>
-                      http://www.example.com
-                    </url>
-                    <displayUrl>
-                      www.example.com
-                    </displayUrl>
-                    <headline>
-                      Cruise to Mars Sector 2
-                    </headline>
-                    <description1>
-                      Visit the Red Planet in style.
-                    </description1>
-                    <description2>
-                      Low-gravity fun for everyone!
-                    </description2>
-                  </ad>
-                  <status>
-                    ENABLED
-                  </status>
-                </operand>
-              </operations>
-            </operationStreams>
-          </request>
-          <numRequestParts>
-            2
-          </numRequestParts>
-        </operand>
-      </operation>
-    </mutate>
-  </env:Body>
+<env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns="https://adwords.google.com/api/adwords/cm/v201008" xmlns:s="https://adwords.google.com/api/adwords/cm/v201008">
+   <env:Header>
+      <s:RequestHeader env:mustUnderstand="0">
+         <authToken>***censured***</authToken>
+         <userAgent>Sem4r Adwords Ruby Client Library (http://github.com/sem4r/sem4r)</userAgent>
+         <developerToken>***censured***</developerToken>
+      </s:RequestHeader>
+   </env:Header>
+   <env:Body>
+      <mutate>
+         <operation xsi:type="JobOperation">
+            <operator>ADD</operator>
+            <operand xsi:type="BulkMutateJob">
+               <request>
+                  <partIndex>0</partIndex>
+                  <operationStreams>
+                     <scopingEntityId>
+                        <type>CAMPAIGN_ID</type>
+                        <value>55131</value>
+                     </scopingEntityId>
+                     <operations xsi:type="AdGroupAdOperation">
+                        <operator>ADD</operator>
+                        <operand xsi:type="AdGroupAd">
+                           <adGroupId>3000144563</adGroupId>
+                           <ad xsi:type="TextAd">
+                              <url>http://www.example.com</url>
+                              <displayUrl>www.example.com</displayUrl>
+                              <headline>Cruise to Mars Sector 1</headline>
+                              <description1>Visit the Red Planet in style.</description1>
+                              <description2>Low-gravity fun for everyone!</description2>
+                           </ad>
+                           <status>ENABLED</status>
+                        </operand>
+                     </operations>
+                     <operations xsi:type="AdGroupAdOperation">
+                        <operator>ADD</operator>
+                        <operand xsi:type="AdGroupAd">
+                           <adGroupId>3000144563</adGroupId>
+                           <ad xsi:type="TextAd">
+                              <url>http://www.example.com</url>
+                              <displayUrl>www.example.com</displayUrl>
+                              <headline>Cruise to Mars Sector 2</headline>
+                              <description1>Visit the Red Planet in style.</description1>
+                              <description2>Low-gravity fun for everyone!</description2>
+                           </ad>
+                           <status>ENABLED</status>
+                        </operand>
+                     </operations>
+                  </operationStreams>
+               </request>
+               <numRequestParts>2</numRequestParts>
+            </operand>
+         </operation>
+      </mutate>
+   </env:Body>
 </env:Envelope>

@@ -1,60 +1,32 @@
-<soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
-  <soap:Header>
-    <ResponseHeader xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <requestId>
-        2f46eb41f5046946b248683b45a159fb
-      </requestId>
-      <operations>
-        2
-      </operations>
-      <responseTime>
-        162
-      </responseTime>
-      <units>
-        2
-      </units>
-    </ResponseHeader>
-  </soap:Header>
-  <soap:Body>
-    <getResponse xmlns='https://adwords.google.com/api/adwords/cm/v201008'>
-      <rval>
-        <geoPoint>
-          <latitudeInMicroDegrees>
-            41901464
-          </latitudeInMicroDegrees>
-          <longitudeInMicroDegrees>
-            12494510
-          </longitudeInMicroDegrees>
-        </geoPoint>
-        <address>
-          <streetAddress>
-            Via Nazionale, 10
-          </streetAddress>
-          <cityName>
-            Roma
-          </cityName>
-          <provinceCode>
-            Lazio
-          </provinceCode>
-          <postalCode>
-            00184
-          </postalCode>
-          <countryCode>
-            IT
-          </countryCode>
-        </address>
-        <encodedLocation>
-          qrvM3QDB3iJsoW5CCm5ELDnrheCfJDpb74yQwvnJlSeV2uWWM7SqEqhwvlaHnOM383ATHFNQRP9+vLgh5ZhGfUhZ7NSmi+eP68KgvuxciuTnoDePQNB14CXChk7/x2h+p01JSnpiHBosblWjonSiBZqdRAeFcqd7jmst7t3qnwCs7PYyXBOKw47hxdiiVPHxagzknR8mvhhR1XjYzfeDS7nZDDAyRFs3x1l7Eq7VG2uNXz0T25VpFEhJfbjXee0c2YbkwcTZJnZLSRKBvyvuudu7oyw2OwSARrTNDnT1gubbhFvThThB1sXIvaHPRlirQDuKHOw9Jdn31LS/wNuxl7OZgV5w631hTdHS/dZUiPTpd2AbGDOMEoPRfdUpkrVQ1fDFXswqXlwgWPVTlrK/B3TVoFR/emc7TztipecXqA9YSc6tMQzJ5IAONn8ZpzLV2tLnpb/s2Zx0y+uEofWTfCvfS5LJ9MFtCobL+x/j99jBpG48wf/4UPGAFuN3Hsa5ZIsgP5J5n85xJmCKtmFhJM+tdnBfXFEhW9egjchy/Optt+2cJzdmAXiPfnsBY5YWGixI12WETHstsvkkZw==
-        </encodedLocation>
-        <GeoLocation.Type>
-          GeoLocation
-        </GeoLocation.Type>
-      </rval>
-      <rval xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:type='InvalidGeoLocation'>
-        <GeoLocation.Type>
-          InvalidGeoLocation
-        </GeoLocation.Type>
-      </rval>
-    </getResponse>
-  </soap:Body>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Header>
+      <ResponseHeader xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+         <requestId>c2c29b9711c8a33172f4e89148a6e90f</requestId>
+         <operations>2</operations>
+         <responseTime>225</responseTime>
+         <units>2</units>
+      </ResponseHeader>
+   </soap:Header>
+   <soap:Body>
+      <getResponse xmlns="https://adwords.google.com/api/adwords/cm/v201008">
+         <rval>
+            <geoPoint>
+               <latitudeInMicroDegrees>41901464</latitudeInMicroDegrees>
+               <longitudeInMicroDegrees>12494510</longitudeInMicroDegrees>
+            </geoPoint>
+            <address>
+               <streetAddress>Via Nazionale, 10</streetAddress>
+               <cityName>Roma</cityName>
+               <provinceCode>Lazio</provinceCode>
+               <postalCode>00184</postalCode>
+               <countryCode>IT</countryCode>
+            </address>
+            <encodedLocation>qrvM3QDB3iJscCTi7jtHoR0Z5O2K3dulPdCkbBJYzmhFyl8YTQj0/Pedp5jh/CsA6O13uD0opvSghZguL+8jN7hp/ofnm+yP0jt1oxtu8LiiYNvHruNIJayAotIrRjpkVYTlEeY28MWzm9MvdBmkNiy7NUFs39dl4bEsiBRFxv988rCSXi/GXYVhYdtGsZ8MW0JlevXYeOY3sZFRGu2zt7xOTQSN1rr7nK2cyK84i6m9hucEloPTNVp/pnwETjSEZfBuX/G15MZzuUte780QCMzBYPl0agEKyTEKouv7rQEMk9lzbR3w2osMjTth1KGKZVQfX+BhcTG+gPwsmgqET6Y8ws4l13b4GFPhwg/McPnDSF4ryHbcrrALn6idZt0x001HMBlcrnw57Tel6DPtb9DREnJGpSGnrYvoy3OYyz4BkMjGvw2HP8wxkGDqVMLgmd8UkO3oocaDVe8SvVd3i6+UUBNXw0/Kl+AzY0RTT1ugVHDMtHnKi2M1eMDFK67kSsghWdGKsxNzAfggD7pyT5+C5SkPq9TMKR/0Oe2mIhQOqFvAC2srk+wMtvzYxlzPEf2bnGgfy2vTBbUDVw==</encodedLocation>
+            <GeoLocation.Type>GeoLocation</GeoLocation.Type>
+         </rval>
+         <rval xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="InvalidGeoLocation">
+            <GeoLocation.Type>InvalidGeoLocation</GeoLocation.Type>
+         </rval>
+      </getResponse>
+   </soap:Body>
 </soap:Envelope>
