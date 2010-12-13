@@ -26,9 +26,7 @@
           <adGroupId>1000</adGroupId>
           <criterion xsi:type='Keyword'>
             <text>sem4r adwords api</text>
-            <matchType>
-              BROAD
-            </matchType>
+            <matchType>BROAD</matchType>
           </criterion>
         </operand>
       </operations>

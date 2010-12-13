@@ -55,6 +55,7 @@ module Sem4rSoap
       @soap_dump_interceptor = options[:interceptor] if options[:interceptor]
     end
 
+    # TODO: request_xml might be a doc object as Nokogiri::doc
     def dump_soap_request(service_url, request_xml)
       return unless @soap_dump
       %w{email password developerToken authToken clientEmail}.each do |tag|
@@ -66,6 +67,7 @@ module Sem4rSoap
       dump(service_url, "req", str)
     end
 
+    # TODO: response_xml might be a doc object as Nokogiri::doc
     def dump_soap_response(service_url, response_xml)
       return unless @soap_dump
       response_xml.gsub(/<email[^>]*>.+<\/email>/, "<email>**censured**</email>")
@@ -101,19 +103,7 @@ module Sem4rSoap
       if !@soap_dump_format
         xml
       else
-        # TODO: using nokogiri also for pretty print xml ?
-        require 'rexml/document'
-        begin
-          xml_document = REXML::Document.new(xml)
-          f            = REXML::Formatters::Pretty.new
-          out          = String.new
-          f.write(xml_document, out)
-          # remove xml directive
-          out.gsub("<?xml version='1.0' encoding='UTF-8'?>", "")
-        rescue
-          puts xml
-          raise
-        end
+        Sem4r::pretty_print_xml_with_nokogiri(xml)
       end
     end
   end

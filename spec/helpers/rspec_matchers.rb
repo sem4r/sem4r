@@ -32,34 +32,17 @@ require 'differ/string'
 #
 # http://drawohara.com/post/89110816/ruby-comparing-xml
 
-def pretty_xml(xml)
-  normalized = Class.new(REXML::Formatters::Pretty) do
-    def write_text(node, output)
-      super(node.to_s.strip, output)
-    end
-  end
-  normalized.new(0, false).write(xml, xml_pretty='')
-  xml_pretty
-end
-
 def normalize_xml(expected_xml)
   if expected_xml.class != String
     expected_xml = expected_xml.to_s
   end
 
   if expected_xml.class == String
+    expected_xml = expected_xml.gsub(/^\n/, "")  # erase empty lines
     # erase namespaces i.e. <ns1:tag> -> <tag>
     expected_xml = expected_xml.gsub(/\b(ns\d:|xsi:|s:|soapenv:|env:|soap:|^\n)/, "").strip
-    begin
-      expected_xml = REXML::Document.new(expected_xml)
-    rescue RuntimeError
-      puts "----------------------------------"
-      puts xml
-      puts "----------------------------------"
-      raise
-    end
   end
-  expected_normalized = pretty_xml(expected_xml)
+  expected_normalized = Sem4r::pretty_print_xml_with_nokogiri(expected_xml)
   # erase namespaces i.e. <ns1:tag> -> <tag>
   expected_normalized.gsub(/(ns\d:|xsi:|s:|soapenv:|env:|soap:|^\n| {2,})/, "").strip
 end

@@ -32,6 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
+  bundler
   differ
   highline
   httpclient

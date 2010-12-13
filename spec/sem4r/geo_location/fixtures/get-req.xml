@@ -18,15 +18,9 @@
     <s:get>
       <s:selector>
         <addresses>
-          <streetAddress>
-            Via Nazionale, 10
-          </streetAddress>
-          <cityName>
-            Rome
-          </cityName>
-          <countryCode>
-            IT
-          </countryCode>
+          <streetAddress>Via Nazionale, 10</streetAddress>
+          <cityName>Rome</cityName>
+          <countryCode>IT</countryCode>
         </addresses>
         <addresses>
           <cityName>

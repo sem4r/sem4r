@@ -1,5 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?> 
-<env:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:env='http://schemas.xmlsoap.org/soap/envelope/' xmlns='https://adwords.google.com/api/adwords/cm/v200909' xmlns:s='https://adwords.google.com/api/adwords/cm/v200909'>
+<?xml version='1.0' encoding='UTF-8'?>
+<env:Envelope xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+              xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'
+              xmlns='https://adwords.google.com/api/adwords/cm/v200909'
+              xmlns:s='https://adwords.google.com/api/adwords/cm/v200909'>
 
   <env:Header>
     <s:RequestHeader env:mustUnderstand='0'>
@@ -30,16 +33,10 @@
           <ad xsi:type='MobileAd'>
             <headline>sem4r</headline>
             <description>simply adwords</description>
-            <mobileCarriers>
-              Vodafone@IT
-            </mobileCarriers>
+            <mobileCarriers>Vodafone@IT</mobileCarriers>
             <businessName>sem4r</businessName>
-            <countryCode>
-              IT
-            </countryCode>
-            <phoneNumber>
-              0612345
-            </phoneNumber>
+            <countryCode>IT</countryCode>
+            <phoneNumber>0612345</phoneNumber>
           </ad>
           <status>ENABLED</status>
         </operand>

@@ -32,7 +32,6 @@ require 'uri'
 require 'pp'
 require 'logger'
 require 'fileutils'
-# require 'rexml/document'
 
 #
 # use bundler
@@ -44,6 +43,7 @@ begin
 rescue LoadError
 end
 
+# TODO: use Nokogiri as xml builder?
 require 'builder'
 require 'nokogiri'
 
@@ -52,20 +52,10 @@ if RUBY_PLATFORM =~ /java/
   require 'openssl'
 end
 
-module Sem4r #:nodoc:
-  def self.version
-    cwd   = Pathname(__FILE__).dirname.expand_path.to_s
-    yaml  = YAML.load_file(cwd + '/../VERSION.yml')
-    major = (yaml['major'] || yaml[:major]).to_i
-    minor = (yaml['minor'] || yaml[:minor]).to_i
-    patch = (yaml['patch'] || yaml[:patch]).to_i
-    "#{major}.#{minor}.#{patch}"
-  end
-end
-
 cwd = Pathname(__FILE__).dirname
 $:.unshift(cwd.to_s) unless $:.include?(cwd.to_s) || $:.include?(cwd.expand_path.to_s)
 
+require 'sem4r/sem4r_utilities'
 require 'sem4r/extensions.rb'
 
 require 'sem4r/adwords'

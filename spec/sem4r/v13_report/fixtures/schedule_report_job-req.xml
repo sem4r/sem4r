@@ -17,39 +17,17 @@
   <env:Body>
     <scheduleReportJob xmlns='https://adwords.google.com/api/adwords/v13'>
       <job xsi:type='DefinedReportJob'>
-        <name>
-          Test Report
-        </name>
-        <selectedReportType>
-          Structure
-        </selectedReportType>
-        <startDay>
-          2009-01-01
-        </startDay>
-        <endDay>
-          2009-01-31
-        </endDay>
-        <aggregationTypes>
-          Keyword
-        </aggregationTypes>
-        <crossClient>
-          false
-        </crossClient>
-        <includeZeroImpression>
-          false
-        </includeZeroImpression>
-        <selectedColumns>
-          Campaign
-        </selectedColumns>
-        <selectedColumns>
-          AdGroup
-        </selectedColumns>
-        <selectedColumns>
-          Keyword
-        </selectedColumns>
-        <selectedColumns>
-          KeywordTypeDisplay
-        </selectedColumns>
+        <name>Test Report</name>
+        <selectedReportType>Structure</selectedReportType>
+        <startDay>2009-01-01</startDay>
+        <endDay>2009-01-31</endDay>
+        <aggregationTypes>Keyword</aggregationTypes>
+        <crossClient>false</crossClient>
+        <includeZeroImpression>false</includeZeroImpression>
+        <selectedColumns>Campaign</selectedColumns>
+        <selectedColumns>AdGroup</selectedColumns>
+        <selectedColumns>Keyword</selectedColumns>
+        <selectedColumns>KeywordTypeDisplay</selectedColumns>
       </job>
     </scheduleReportJob>
   </env:Body>

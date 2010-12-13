@@ -22,40 +22,18 @@
         </operator>
         <operand>
           <selector>
-            <fields>
-              AdGroupId
-            </fields>
-            <fields>
-              Id
-            </fields>
-            <fields>
-              KeywordText
-            </fields>
-            <fields>
-              KeywordMatchType
-            </fields>
-            <fields>
-              Impressions
-            </fields>
-            <fields>
-              Clicks
-            </fields>
-            <fields>
-              Cost
-            </fields>
+            <fields>AdGroupId</fields>
+            <fields>Id</fields>
+            <fields>KeywordText</fields>
+            <fields>KeywordMatchType</fields>
+            <fields>Impressions</fields>
+            <fields>Clicks</fields>
+            <fields>Cost</fields>
           </selector>
-          <reportName>
-            Keywords performance report #1290336379254
-          </reportName>
-          <reportType>
-            KEYWORDS_PERFORMANCE_REPORT
-          </reportType>
-          <dateRangeType>
-            LAST_WEEK
-          </dateRangeType>
-          <downloadFormat>
-            CSV
-          </downloadFormat>
+          <reportName>Keywords performance report #1290336379254</reportName>
+          <reportType>KEYWORDS_PERFORMANCE_REPORT</reportType>
+          <dateRangeType>LAST_WEEK</dateRangeType>
+          <downloadFormat>CSV</downloadFormat>
         </operand>
       </operations>
     </mutate>
