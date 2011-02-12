@@ -24,10 +24,10 @@
 
 module Sem4rCli
 
-  CliListCampaign = define_command_sem4r("campaigns", "list campaigns") do |account|
-    puts "Collecting campaign from account(s) - please wait"
+  CommandKeywords = define_command_sem4r("keywords", "list keywords") do |account|
+    puts "Collecting keywords from account(s) - please wait"
 
-    # if the accounts have client_accounts it is a master
+    # if the account have client_accounts it is a master
     client_accounts = account.client_accounts
     if client_accounts.empty?
       client_accounts = [account]
@@ -35,35 +35,44 @@ module Sem4rCli
 
     items        = []
     need_newline = false
-
     client_accounts.each do |client_account|
       if need_newline
         puts
         need_newline = false
       end
-
-      puts "look in account '#{client_account.credentials.client_email}'"
+      puts "examinate account '#{client_account.credentials.client_email}'"
       client_account.campaigns.each do |campaign|
+        # puts "examinate campaign '#{campaign}'"
+        campaign.ad_groups.each do |ad_group|
+          ad_group.criterions.each do |criterion|
 
-        o        = OpenStruct.new
-        o.client = client_account.credentials.client_email
-        o.id     = campaign.id
-        o.name   = campaign.name
-        o.status = campaign.status
-        items << o
+            row          = OpenStruct.new
+            row.client   = client_account.credentials.client_email
+            row.campaign = campaign.name
+            row.ad_group = ad_group.name
 
-        print "."
-        need_newline = true
+            row.type     = criterion.type
+            case criterion.type
+              when Criterion::Keyword
+                row.text  = criterion.text
+                row.match = criterion.match
+              when Criterion::Placement
+                row.text = criterion.url
+            end
+            items << row
+            print "."
+            need_newline = true
+          end
+        end
       end
     end
-
     if need_newline
       puts
       need_newline = false
     end
-    report(items, :client, :id, :name, :status)
+    report(items, :client, :campaign, :ad_group, :type, :text, :match)
     account.adwords.p_counters
     true
   end
 
-end
+end # module Sem4rCli

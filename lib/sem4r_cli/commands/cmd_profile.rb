@@ -27,23 +27,24 @@ module Sem4rCli
   #
   # Manage Sem4r profiles
   #
-  class CliProfile < CliCommand
+  class CommandProfile < OptParseCommand::CliCommand
 
     def self.command
       "profile"
-    end
-
-    def self.subcommands
-      %w{list create}
     end
 
     def self.description
       "manage sem4r profiles (subcommands: #{subcommands.join(', ')})"
     end
 
-    def initialize(sem4r_cli)
-      @sem4r_cli = sem4r_cli
+    def self.usage
+      "usage profile"
     end
+
+    def self.subcommands
+      %w{list create}
+    end
+
 
     def command_opt_parser(options)
       opt_parser        = OptionParser.new
@@ -56,19 +57,20 @@ module Sem4rCli
       end
     end
 
-    def parse_and_run(argv)
+    def exec(sem4r_cli, options, rest)
       options = OpenStruct.new
-      rest    = command_opt_parser(options).parse(argv)
+      rest    = command_opt_parser(options).parse(rest)
       return false if options.exit
       if rest.empty?
-        puts "missing command"
-        return false
+        # puts "missing command"
+        # return false
+        rest << "list" # default command
       end
 
       ret             = true
       subcommand      = rest[0]
       subcommand_args = rest[1..-1]
-      adwords         = @sem4r_cli.adwords
+      adwords         = sem4r_cli.adwords
       case subcommand
         when "list"
           puts "Profiles:"
@@ -84,7 +86,7 @@ module Sem4rCli
             o.environment = profiles[s]['environment']
             items << o
           end
-          Sem4rCli::report(items, :name, :environment, :email, :mutable)
+          OptParseCommand::report(items, :name, :environment, :email, :mutable)
         when "create"
           puts "Tobe done :-)"
 

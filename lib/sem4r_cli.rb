@@ -22,15 +22,17 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # -------------------------------------------------------------------
 
-require 'optparse'
+#
+# rubygems
+#
 require "highline/import" # to ask password on command line
+gem "optparse-command", "0.1.5"
+require 'optparse-command'
 
 require 'sem4r'
-require 'sem4r_cli/cli_mini_framework'
 require 'sem4r_cli/cli_sem'
-require 'sem4r_cli/cli_helpers'
 
 # commands
-Dir[File.join( File.dirname(__FILE__), "sem4r_cli", "commands", "*.rb" )].each do |f|
+Dir[File.join( File.dirname(__FILE__), "sem4r_cli", "commands", "cmd*.rb" )].each do |f|
   require f
 end

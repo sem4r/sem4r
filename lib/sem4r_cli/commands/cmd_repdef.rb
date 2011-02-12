@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # -------------------------------------------------------------------------
 # Copyright (c) 2009-2010 Sem4r sem4ruby@gmail.com
-#
+# 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -9,10 +9,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-#
+# 
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-#
+# 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,20 +25,20 @@
 module Sem4rCli
 
   #
-  # BulkMuteteJob
+  # Report Definition (v201008 api)
   #
-  class CliJob < CliCommand
+  class CommandRepDef < OptParseCommand::CliCommand
 
     def self.command
-      "job"
+      "repdef"
     end
 
     def self.subcommands
-      %w{list submit submit_pending delete}
+      %w{fields list create}
     end
 
     def self.description
-      "manage bulk mutate job (subcommands: #{subcommands.join(', ')})"
+      "manage report definition (subcommands: #{subcommands.join(", ")})"
     end
 
     def initialize(sem4r_cli)
@@ -59,7 +59,9 @@ module Sem4rCli
     def parse_and_run(argv)
       options = OpenStruct.new
       rest    = command_opt_parser(options).parse(argv)
-      return false if options.exit
+      if options.exit
+        return false
+      end
 
       if rest.empty?
         puts "missing command"
@@ -71,21 +73,22 @@ module Sem4rCli
       subcommand      = rest[0]
       subcommand_args = rest[1..-1]
       case subcommand
+        when "fields"
+          report_type = ReportDefinition::AD_PERFORMANCE_REPORT
+          puts "Fields for #{report_type}"
+          Sem4rCli::report(account.report_fields(report_type), :field_name, :field_type)
 
         when "list"
-          Sem4rCli::report(account.jobs, :id, :status)
+          Sem4rCli::report(account.report_definitions, :id, :name)
 
         when "delete"
-          job_id = rest[1]
-          account.job_delete(job_id)
+          report_definition_id = rest[1]
+          account.report_definition_delete(report_definition_id)
 
-        when "submit"
+        when "create"
           ret = create(account)
-
-        when "submit_pending"
-          ret = create(account, true)
         else
-          puts "unknow subcommand '#{subcommand}'; must be one of #{self.class.subcommands.join(", ")}"
+          puts "unknow subcommand '#{subcommand}'; must be one of #{subcommands.join(", ")}"
           return false
       end
       account.adwords.p_counters
@@ -94,16 +97,27 @@ module Sem4rCli
 
     private
 
-    def create(account, pending = false)
-      puts "creating example job"
-      campaign, ad_group = template_campaign_and_ad_group(account)
-      job = template_bulk_mutate_job(campaign, ad_group)
-      if pending
-        job.num_parts = 3
+    def create(account)
+      rd = account.report_definition do
+        name "Keywords performance report #1290336379254"
+        type "KEYWORDS_PERFORMANCE_REPORT"
+        date_range "CUSTOM_DATE"
+        from "20100101"
+        to "20100110"
+        format "CSV"
+
+        field "AdGroupId"
+        field "Id"
+        field "KeywordText"
+        field "KeywordMatchType"
+        field "Impressions"
+        field "Clicks"
+        field "Cost"
       end
-      result_job = account.job_mutate(JobOperation.add(job))
-      puts result_job.to_s
-      account.p_jobs
+      rd.save
+      puts rd.id
+      puts rd.to_s
+      account.p_report_definitions
       true
     end
 

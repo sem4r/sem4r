@@ -27,7 +27,7 @@ module Sem4rCli
   #
   # report (v13 api)
   #
-  class CliReport < CliCommand
+  class CommandReport < OptParseCommand::CliCommand
 
     def self.command
       "report"
@@ -39,7 +39,7 @@ module Sem4rCli
 
     def initialize(common_args)
       @common_args = common_args
-      @subcomands = %w{list download schedule}
+      @subcommands = %w{list download schedule}
     end
 
     def parse_and_run(argv)
@@ -78,7 +78,7 @@ module Sem4rCli
 
     def command_opt_parser(options)
       opt_parser        = OptionParser.new
-      opt_parser.banner = "Usage #{self.class.command} [command_options ] [#{@subcomands.join("|")}]"
+      opt_parser.banner = "Usage #{self.class.command} [command_options ] [#{@subcommands.join("|")}]"
       opt_parser.separator ""
       opt_parser.separator "#{self.class.description}"
 
@@ -93,7 +93,7 @@ module Sem4rCli
     #
     def download(args)
       if args.length != 1
-        puts "missing report id for 'donwload' subcommand"
+        puts "missing report id for 'download' subcommand"
         return false
       end
 
@@ -105,7 +105,7 @@ module Sem4rCli
       end
 
       if report.status != 'Completed'
-        puts "cannot donwload report with status '#{report.status}'"
+        puts "cannot download report with status '#{report.status}'"
         return false
       end
 

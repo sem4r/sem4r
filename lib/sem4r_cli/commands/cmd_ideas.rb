@@ -28,7 +28,7 @@ module Sem4rCli
   #
   # idea
   #
-  class CliIdeas < CliCommand
+  class CommandIdeas < OptParseCommand::CliCommand
 
     def self.command
       "ideas"

@@ -25,7 +25,7 @@
 
 module Sem4rCli
 
-  CliInfo = define_command_sem4r("info", "show account info") do |account|
+  CommandInfo = define_command_sem4r("info", "show account info") do |account|
     account.p_info
     items = (InfoSelector::UsageTypes - [InfoSelector::METHOD_COST]).map do |usage_type|
       n = account.year_unit_cost(usage_type)
