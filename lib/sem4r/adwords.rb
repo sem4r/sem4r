@@ -22,7 +22,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # -------------------------------------------------------------------
 
-
 module Sem4r
   class Adwords
 
@@ -46,78 +45,6 @@ module Sem4r
         new("production", options)
       end
 
-      #
-      # @private
-      # Search configuration file in standard locations
-      # @return [OpenStruct] with
-      #       :config_dir
-      #       :config_file
-      #       :password_file
-      #
-      def search_config
-        config_filename   = "sem4r.yml"
-        password_filename = "sem4r_passwords.yml"
-
-        #
-        # try current directory
-        #
-        # return File.expand_path(config_filename) if File.exists?( config_filename)
-
-        #
-        # try ~/.sem4r/sem4r.yml
-        #
-        # require 'etc'
-        # homedir = Etc.getpwuid.dir
-        homedir           = ENV['HOME']
-        config_filepath   = File.join(homedir, ".sem4r", config_filename)
-        if File.exists?(config_filepath)
-          return OpenStruct.new(
-              :config_dir    => File.join(homedir, ".sem4r"),
-              :config_file   => config_filepath,
-              :password_file => File.join(homedir, ".sem4r", password_filename))
-        end
-
-        #
-        # try <home_sem4r>/config/sem4r
-        #
-        config_filepath = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "config", config_filename))
-        if File.exists?(config_filepath)
-          return OpenStruct.new(
-              :config_dir    => nil,
-              :config_file   => config_filepath,
-              :password_file => nil)
-        end
-
-        config_filepath = File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "config", "sem4r.example.yml"))
-        if File.exists?(config_filepath)
-          return OpenStruct.new(
-              :config_dir    => nil,
-              :config_file   => config_filepath,
-              :password_file => nil)
-        end
-
-        OpenStruct.new(
-            :config_dir    => nil,
-            :config_file   => nil,
-            :password_file => nil)
-      end
-
-      #
-      # Return list of profile contained into config file
-      #
-      def profiles(profile_file = nil)
-        unless profile_file
-          config = search_config
-          unless config
-            raise Sem4rError, "config file 'sem4r' not found"
-          end
-          profile_file = config.config_file
-        end
-        # puts "Loaded profiles from #{profile_file}"
-        yaml     = YAML::load(File.open(profile_file))
-        profiles = yaml['google_adwords']
-        profiles
-      end
     end
 
     #
@@ -192,7 +119,7 @@ module Sem4r
     # returns profiles contained into current config file
     #
     def profiles
-      self.class.profiles @config.config_file
+      Profile.profiles @config.config_file
     end
 
     #
@@ -200,7 +127,7 @@ module Sem4r
     #
     def config_file
       return @config.config_file if @config
-      @config = Adwords.search_config
+      @config = Profile.search_config
       unless @config
         puts "cannot find configuration files"
       end
@@ -259,7 +186,7 @@ module Sem4r
     # and the config file
     #
     def configure(config_file = nil, password_file = nil)
-      @config = Adwords.search_config
+      @config = Profile.search_config
       unless config_file.nil?
         config_file = File.expand_path(config_file)
         unless File.exists?(config_file)

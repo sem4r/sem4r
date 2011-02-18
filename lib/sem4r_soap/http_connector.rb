@@ -20,7 +20,6 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-# 
 # -------------------------------------------------------------------------
 
 module Sem4rSoap
@@ -93,7 +92,7 @@ module Sem4rSoap
           uri     = URI.parse(uri) # might raise URI::InvalidURIError
         end
         retries = 0; response = nil
-        while retries <= MAXRETRIES and response.nil?
+        while retries <= MAX_RETRIES and response.nil?
           retries += 1
           begin
             client   = client_for_uri(uri)
@@ -116,7 +115,7 @@ module Sem4rSoap
 
       private
 
-      MAXRETRIES = 2
+      MAX_RETRIES = 2
 
       def client_for_uri(uri)
         @clients ||= {}
@@ -179,7 +178,7 @@ module Sem4rSoap
       # Downloads content at url in path_name
       #
       def download(url, path_name)
-        client = HTTPClient.new(:agent_name => 'Ruby') # agentname
+        client = HTTPClient.new(:agent_name => 'Ruby')
         File.open(path_name, "w") do |file|
           client.get_content(url) do |chunk|
             file.write chunk
@@ -188,10 +187,10 @@ module Sem4rSoap
       end
 
       #
-      # @return [Object] must respond to :status and :body
+      # @return [Object, #status, #body] must respond to :status and :body
       #
       def post(service_url, body, headers)
-        client   = HTTPClient.new(:agent_name => 'Ruby') # agentname
+        client   = HTTPClient.new(:agent_name => 'Ruby')
         response = client.post(service_url, body, headers)
         unless response
           raise "Connection Error, Network is down?? :-((("

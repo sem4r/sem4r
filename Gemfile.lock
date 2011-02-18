@@ -6,25 +6,26 @@ GEM
     differ (0.1.1)
     git (1.2.5)
     highline (1.6.1)
-    httpclient (2.1.5.2)
-    jeweler (1.5.1)
+    httpclient (2.1.6.1)
+    jeweler (1.5.2)
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
     nokogiri (1.4.4)
     nokogiri (1.4.4-java)
       weakling (>= 0.0.3)
+    optparse-command (0.1.5)
     rake (0.8.7)
-    rspec (2.2.0)
-      rspec-core (~> 2.2)
-      rspec-expectations (~> 2.2)
-      rspec-mocks (~> 2.2)
-    rspec-core (2.2.1)
-    rspec-expectations (2.2.0)
+    rspec (2.5.0)
+      rspec-core (~> 2.5.0)
+      rspec-expectations (~> 2.5.0)
+      rspec-mocks (~> 2.5.0)
+    rspec-core (2.5.1)
+    rspec-expectations (2.5.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.2.0)
+    rspec-mocks (2.5.0)
     weakling (0.0.4-java)
-    yard (0.6.3)
+    yard (0.6.4)
 
 PLATFORMS
   java
@@ -38,6 +39,7 @@ DEPENDENCIES
   httpclient
   jeweler
   nokogiri
+  optparse-command (= 0.1.5)
   rake
   rspec
   yard

@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 
 # -------------------------------------------------------------------------
 # Copyright (c) 2009-2010 Sem4r sem4ruby@gmail.com
@@ -21,15 +21,11 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-# 
 # -------------------------------------------------------------------------
 
 require 'rubygems'
-
 cwd = File.expand_path( File.join( File.dirname(__FILE__), "..", "lib" ) )
 $:.unshift(cwd) unless $:.include?(cwd)
 require 'sem4r_cli'
 
-include Sem4r
-include Sem4rCli
-exit CliSem.run
+Sem4rCli::CliSem.run!

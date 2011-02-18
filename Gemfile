@@ -4,15 +4,14 @@ gem "builder"
 gem "nokogiri"
 gem "httpclient"
 gem 'highline', :require => 'highline/import'
+gem "optparse-command", "0.1.5"
 
 group :development do
   gem "jeweler"
   gem "rake"
   gem "yard"
   gem "bundler"  # funny!
-end
 
-group :test do
   gem "differ"
   gem "rspec"
 end

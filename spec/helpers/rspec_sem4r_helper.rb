@@ -25,22 +25,38 @@
 module Sem4rSpecHelper
 
   require "stringio"
-  def with_stdout_captured
-    old_stdout = $stdout
-    out = StringIO.new
-    $stdout = out
+
+#  def with_stdout_captured
+#    old_stdout = $stdout
+#    out        = StringIO.new
+#    $stdout    = out
+#    begin
+#      yield
+#    ensure
+#      $stdout = old_stdout
+#    end
+#    out.string
+#  end
+
+#
+# Capture $stdout and $stderr of a block
+#
+  def capture_out
+    old_stdout, old_stderr = $stdout, $stderr
+    out, err = StringIO.new, StringIO.new
+    $stdout, $stderr = out, err
     begin
       yield
     ensure
-      $stdout = old_stdout
+      $stdout, $stderr = old_stdout, old_stderr
     end
-    out.string
+    OpenStruct.new(:out => out.string, :err => err.string)
   end
 
   #############################################################################
 
   def read_xml(service, file_name)
-    xml_filepath  = File.expand_path File.join(File.dirname(__FILE__), "..", "sem4r", service, "fixtures", file_name)
+    xml_filepath = File.expand_path File.join(File.dirname(__FILE__), "..", "sem4r", service, "fixtures", file_name)
     unless File.exist?(xml_filepath)
       raise "file #{xml_filepath} not exists"
     end
@@ -51,7 +67,7 @@ module Sem4rSpecHelper
   end
 
   def write_xml(service, file_name, xml)
-    fixture_dir  = File.expand_path File.join(File.dirname(__FILE__), "..", "sem4r", service, "fixtures")
+    fixture_dir = File.expand_path File.join(File.dirname(__FILE__), "..", "sem4r", service, "fixtures")
     FileUtils.mkdir_p(fixture_dir) unless File.directory?(fixture_dir)
     pathname = File.join(fixture_dir, file_name)
     puts "writing to #{pathname}"
@@ -61,7 +77,7 @@ module Sem4rSpecHelper
   end
 
   def read_model(xpath, service, xml_file, &blk)
-    contents = read_xml(service, xml_file)
+    contents     = read_xml(service, xml_file)
     xml_document = Nokogiri::XML::Document.parse(contents)
     if xpath && blk
       el = xml_document.xpath(xpath).each do |node|

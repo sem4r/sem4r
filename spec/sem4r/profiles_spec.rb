@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # -------------------------------------------------------------------------
 # Copyright (c) 2009-2010 Sem4r sem4ruby@gmail.com
-#
+# 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -9,10 +9,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-#
+# 
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-#
+# 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -22,26 +22,31 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # -------------------------------------------------------------------------
 
-require File.dirname(__FILE__) + '/../rspec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../rspec_helper')
 
-describe "cli" do
-  include Sem4rSpecHelper
+describe Profile do
 
-  describe Sem4rCli::CliSem do
+  before(:each) do
+    @test_config_filename   = File.expand_path(File.dirname(__FILE__) + "/../fixtures/sem4r.example.yml")
+    @test_password_filename = File.expand_path(File.dirname(__FILE__) + "/../fixtures/password.example.yml")
 
-    it "should show help" do
-      ret = false
-      out = capture_out { ret = Sem4rCli::CliSem.run %w{ -h } }.out
-      out.should match("Usage")
-      ret.should be_true
-    end
+    @environment          = "sandbox"
+    @email                = "sem4ruby@sem4r.com"
+    @password             = "password"
+    @developer_token      = "developer_token"
+
+    @options              = {
+        :environment     => @environment,
+        :email           => @email,
+        :password        => @password,
+        :developer_token => @developer_token,
+    }
   end
 
-  it "should show version and exit" do
-    ret = true
-    out = capture_out { ret = Sem4rCli::CliSem.run %w{ --version } }.out
-    out.should match("sem4r version")
-    ret.should be_true
+  it "should list profiles" do
+    values = Profile.profiles(@test_config_filename)
+    values.should have(5).profiles
   end
 
 end
+

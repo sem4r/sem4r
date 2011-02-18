@@ -104,11 +104,6 @@ describe Adwords do
     credentials.developer_token.should == "productiondevelopertoken"
   end
 
-  it "should list profiles" do
-    values = Adwords.profiles(@test_config_filename)
-    values.should have(5).profiles
-  end
-
   it "should need a password" do
     @options.delete(:password)
     adwords = Adwords.new(@options)
