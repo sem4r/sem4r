@@ -24,16 +24,6 @@
 
 module Sem4r
 
-  def self.version
-    cwd   = Pathname(__FILE__).dirname.expand_path.to_s
-    yaml  = YAML.load_file(cwd + '/../../VERSION.yml')
-    major = (yaml['major'] || yaml[:major]).to_i
-    minor = (yaml['minor'] || yaml[:minor]).to_i
-    patch = (yaml['patch'] || yaml[:patch]).to_i
-    "#{major}.#{minor}.#{patch}"
-  end
-
-
   #def pretty_xml(xml)
   #  normalized = Class.new(REXML::Formatters::Pretty) do
   #    def write_text(node, output)
@@ -53,7 +43,7 @@ module Sem4r
       out          = String.new
       f.write(xml_document, out)
       # remove xml directive
-      out.gsub("<?xml version='1.0' encoding='UTF-8'?>", "")
+      out.gsub("<?xml version.rb='1.0' encoding='UTF-8'?>", "")
     rescue
       #    rescue RuntimeError
       puts "----------------------------------"
@@ -117,7 +107,7 @@ module Sem4r
     doc  = Nokogiri::XML(xml)
     xslt = Nokogiri::XSLT(@_nokogiri_xsl)
     out  = xslt.transform(doc).root.to_xml # using root omit the xml declaration
-    # out.gsub(/<\?xml version=('|")1.0('|") encoding=('|")UTF-8('|")\?>/, "")
+    # out.gsub(/<\?xml version.rb=('|")1.0('|") encoding=('|")UTF-8('|")\?>/, "")
   end
 
 end

@@ -60,7 +60,7 @@ module Sem4rCli
     end
 
     def self.version
-      Sem4r::version
+      Sem4r::VERSION
     end
 
     def defaults

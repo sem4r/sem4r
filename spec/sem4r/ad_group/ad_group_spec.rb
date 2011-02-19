@@ -20,7 +20,6 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-# 
 # -------------------------------------------------------------------------
 
 require File.expand_path(File.dirname(__FILE__) + '/../../rspec_helper')
@@ -86,8 +85,8 @@ describe AdGroup do
           site_max_cpc 30000000
         end
       end
-      exepected_xml = read_model("//operand", "ad_group", "mutate_add-req.xml")
-      adgroup.to_xml("operand").should xml_equivalent(exepected_xml)
+      expected_xml = read_model("//operand", "ad_group", "mutate_add-req.xml")
+      adgroup.to_xml("operand").should xml_equivalent(expected_xml)
     end
 
     it "should parse xml (produced by google)" do

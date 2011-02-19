@@ -76,7 +76,7 @@ module Sem4rSoap
           end
         when "v2010"
         else
-          raise "unkwnow api version #{api_version}"
+          raise "unknown api version #{api_version}"
       end
 
       soap_xml = build_soap_message(build_soap_header(credentials), soap_body)
@@ -105,7 +105,7 @@ module Sem4rSoap
       else
         smutate = "true"
       end
-      rubystr =<<-EOFS
+      ruby_str =<<-EOFS
           define_method :#{method.to_sym} do |*args|
             credentials = args.shift
             if #{smutate}
@@ -116,9 +116,9 @@ module Sem4rSoap
             end
           end
       EOFS
-      eval rubystr
+      eval ruby_str
 
-      rubystr =<<-EOFS
+      ruby_str =<<-EOFS
           define_method :#{(method.to_s + "_raw").to_sym} do |*args|
             credentials = args.shift
             soap_message = args.shift
@@ -129,7 +129,7 @@ module Sem4rSoap
             end
           end
       EOFS
-      eval rubystr
+      eval ruby_str
     end
 
   end

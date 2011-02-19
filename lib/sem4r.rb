@@ -33,15 +33,6 @@ require 'pp'
 require 'logger'
 require 'fileutils'
 
-#
-# use bundler
-#
-#require "rubygems"
-#begin
-#  require "bundler/setup"
-#rescue LoadError
-#end
-
 # TODO: use Nokogiri as xml builder?
 require 'builder'
 require 'nokogiri'
@@ -51,9 +42,7 @@ if RUBY_PLATFORM =~ /java/
   require 'openssl'
 end
 
-#cwd = Pathname(__FILE__).dirname
-#$:.unshift(cwd.to_s) unless $:.include?(cwd.to_s) || $:.include?(cwd.expand_path.to_s)
-
+require 'sem4r/version'
 require 'sem4r/sem4r_utilities'
 require 'sem4r/extensions.rb'
 
