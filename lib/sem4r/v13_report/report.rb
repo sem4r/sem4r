@@ -75,6 +75,7 @@ module Sem4r
     g_accessor :type
     g_accessor :cross_client,    {:default => false}
     g_accessor :zero_impression, {:default => false}
+    g_accessor :client_emails, {:default => []}
 
     g_reader   :status
 
@@ -103,6 +104,10 @@ module Sem4r
 
       t.crossClient           cross_client
       t.includeZeroImpression zero_impression
+
+      client_emails.each do |email|
+        t.clientEmails email
+      end unless client_emails.empty?
 
       columns.each do |column|
         t.selectedColumns column
