@@ -33,6 +33,7 @@ module Sem4r
       @connector = connector
       @service_namespace = "https://adwords.google.com/api/adwords/cm/v201008"
       @header_namespace = @service_namespace
+      @production_service_url = "https://adwords.google.com/api/adwords/cm/v201101/AdGroupService"
       @sandbox_service_url = "https://adwords-sandbox.google.com/api/adwords/cm/v201008/AdGroupService"
       init(@header_namespace, @service_namespace)
     end

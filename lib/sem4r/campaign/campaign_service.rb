@@ -34,6 +34,7 @@ module Sem4r
       @service_namespace = "https://adwords.google.com/api/adwords/cm/v201008"
       @header_namespace = @service_namespace
       
+      @production_service_url = "https://adwords.google.com/api/adwords/cm/v201008/CampaignService"
       @sandbox_service_url = "https://adwords-sandbox.google.com/api/adwords/cm/v201008/CampaignService"
       init(@header_namespace, @service_namespace)      
     end
